@@ -1,4 +1,5 @@
 import './style.css';
-import processCurrentData from './data';
+import { processCurrentData, processConditionData } from './data';
 
 processCurrentData();
+processConditionData();
