@@ -1,6 +1,4 @@
-/* write API fetch function in both promise and async/await
-syntax for practice. */
-
+// Fetch data from weatherAPI.
 async function getData() {
     const userSearch = 'taipei';
     const fetchURL = `https://api.weatherapi.com/v1/current.json?key=e02fa4d0109640d0bc2163918231711&q=${userSearch}`;
