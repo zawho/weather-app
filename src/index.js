@@ -1,4 +1,4 @@
 import './style.css';
-import getData from './data';
+import processCurrentData from './data';
 
-getData();
+processCurrentData();
