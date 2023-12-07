@@ -72,4 +72,4 @@ async function processForecastData() {
     console.log(tomorrowForecaseObj);
 }
 
-export { processCurrentData, processConditionData, processHourlyData, processForecastData};
+export { processCurrentData, processConditionData, processHourlyData, processForecastData };
