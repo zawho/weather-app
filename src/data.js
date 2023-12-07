@@ -43,7 +43,8 @@ async function processConditionData() {
 // Create hourly forecast objects.
 async function processHourlyData() {
     const weatherData = await getWeatherData();
-    const currentDate = new Date();
+    const localTime = weatherData.location.localtime;
+    const currentDate = new Date(localTime);
     const currentHour = currentDate.getHours();
     const hourlyArr = weatherData.forecast.forecastday[0].hour;
     const newhourlyArr = [];
