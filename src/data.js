@@ -26,7 +26,7 @@ async function processCurrentData() {
         sunrise: weatherData.forecast.forecastday[0].astro.sunrise,
         sunset: weatherData.forecast.forecastday[0].astro.sunset,
     };
-    console.log(currentWeatherObj);
+    // console.log(currentWeatherObj);
 }
 
 // Create a new object for current weather condition.
@@ -37,7 +37,18 @@ async function processConditionData() {
         conditionText: weatherData.current.condition.text,
         conditionIcon: weatherData.current.condition.icon,
     }
-    console.log(conditionObj)
+    // console.log(conditionObj)
+}
+
+// Create hourly forecast objects.
+async function processHourlyData() {
+    const weatherData = await getWeatherData();
+    const currentDate = new Date();
+    const currentHour = currentDate.getHours();
+    const hourlyArr = weatherData.forecast.forecastday[0].hour;
+    for (let i = currentHour + 1; i < hourlyArr.length; i++) {
+        console.log(hourlyArr[i]);
+    }
 }
 
 // Create tomorrow forecast object.
@@ -51,6 +62,7 @@ async function processForecastData() {
         rainChance: weatherData.forecast.forecastday[1].day.daily_chance_of_rain,
         conditionIcon: weatherData.forecast.forecastday[1].day.condition.icon,
     }
-    console.log(tomorrowForecaseObj);
+    // console.log(tomorrowForecaseObj);
 }
-export { processCurrentData, processConditionData, processForecastData };
+
+export { processCurrentData, processConditionData, processHourlyData, processForecastData};
