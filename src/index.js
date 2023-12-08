@@ -1,8 +1,4 @@
 import './style.css';
-import { processCurrentData, processConditionData, processForecastData, 
-    processHourlyData } from './data';
+import processAllData from './data';
 
-processCurrentData();
-processConditionData();
-processHourlyData();
-processForecastData();
+processAllData();

@@ -72,4 +72,12 @@ async function processForecastData() {
     console.log(tomorrowForecaseObj);
 }
 
-export { processCurrentData, processConditionData, processHourlyData, processForecastData };
+// Run all data processing functions.
+function processAllData() {
+    processCurrentData();
+    processConditionData();
+    processHourlyData();
+    processForecastData();
+}
+
+export default processAllData;
