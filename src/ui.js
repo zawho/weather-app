@@ -5,6 +5,9 @@ function createSearchUI() {
     const searchBar = document.createElement('input');
     const searchBtn = document.createElement('button');
 
+    searchDiv.className = 'search-div';
+    searchBar.className = 'search-bar';
+    searchBtn.className = 'search-btn';
     searchBtn.innerText = 'search';
 
     searchDiv.appendChild(searchBar);
