@@ -57,7 +57,7 @@ function processForecastData(weatherData) {
 }
 
 // Run all data processing functions.
-async function processAllData(weatherData) {
+function processAllData(weatherData) {
     processCurrentData(weatherData);
     processConditionData(weatherData);
     processHourlyData(weatherData);
