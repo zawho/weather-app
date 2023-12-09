@@ -1,6 +1,7 @@
 // Fetch weather data.
 async function getWeatherData() {
-    const userSearch = 'taipei';
+    const searchBar = document.querySelector('.search-bar');
+    const userSearch = searchBar.value;
     const fetchURL = `https://api.weatherapi.com/v1/forecast.json?key=e02fa4d0109640d0bc2163918231711&q=${userSearch}&days=3`;
     const response = await fetch(fetchURL, {mode: 'cors'});
     const forecastData = await response.json();
@@ -14,6 +15,7 @@ async function getWeatherData() {
 // Create a new object with only necessary current weather data.
 function processCurrentData(weatherData) {
     const currentWeatherObj = {
+        locationName: weatherData.location.name,
         tempC: weatherData.current.temp_c,
         tempF: weatherData.current.temp_f,
         feelsLikeC: weatherData.current.feelslike_c,
