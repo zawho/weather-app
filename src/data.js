@@ -12,8 +12,7 @@ async function getWeatherData() {
 }
 
 // Create a new object with only necessary current weather data.
-async function processCurrentData() {
-    const weatherData = await getWeatherData();
+function processCurrentData(weatherData) {
     const currentWeatherObj = {
         tempC: weatherData.current.temp_c,
         tempF: weatherData.current.temp_f,
@@ -30,8 +29,7 @@ async function processCurrentData() {
 }
 
 // Create a new object for current weather condition.
-async function processConditionData() {
-    const weatherData = await getWeatherData();
+function processConditionData(weatherData) {
     const conditionObj = {
         conditionCode: weatherData.current.condition.code,
         conditionText: weatherData.current.condition.text,
@@ -41,8 +39,7 @@ async function processConditionData() {
 }
 
 // Create hourly forecast objects.
-async function processHourlyData() {
-    const weatherData = await getWeatherData();
+function processHourlyData(weatherData) {
     const localTime = weatherData.location.localtime;
     const currentDate = new Date(localTime);
     const currentHour = currentDate.getHours();
@@ -59,8 +56,7 @@ async function processHourlyData() {
 }
 
 // Create tomorrow forecast object.
-async function processForecastData() {
-    const weatherData = await getWeatherData();
+function processForecastData(weatherData) {
     const tomorrowForecaseObj = {
         maxTempC: weatherData.forecast.forecastday[1].day.maxtemp_c,
         minTempC: weatherData.forecast.forecastday[1].day.mintemp_c,
@@ -73,11 +69,12 @@ async function processForecastData() {
 }
 
 // Run all data processing functions.
-function processAllData() {
-    processCurrentData();
-    processConditionData();
-    processHourlyData();
-    processForecastData();
+async function processAllData() {
+    const weatherData = await getWeatherData();
+    processCurrentData(weatherData);
+    processConditionData(weatherData);
+    processHourlyData(weatherData);
+    processForecastData(weatherData);
 }
 
 export default processAllData;
