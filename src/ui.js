@@ -8,6 +8,7 @@ function createSearchUI() {
     searchDiv.className = 'search-div';
     searchBar.className = 'search-bar';
     searchBtn.className = 'search-btn';
+    searchBar.value = 'new york';
     searchBtn.innerText = 'search';
 
     searchDiv.appendChild(searchBar);

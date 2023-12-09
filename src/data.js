@@ -81,6 +81,7 @@ async function getWeatherData() {
 
 // Set location search event listener.
 function submitSearch() {
+    getWeatherData();
     const searchBtn = document.querySelector('.search-btn');
     searchBtn.addEventListener('click', getWeatherData);
 }
