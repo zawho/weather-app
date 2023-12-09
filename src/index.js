@@ -1,6 +1,6 @@
 import './style.css';
 import createSearchUI from './ui';
-import processAllData from './data';
+import submitSearch from './data';
 
 createSearchUI();
-processAllData();
+submitSearch();

@@ -1,17 +1,3 @@
-// Fetch weather data.
-async function getWeatherData() {
-    const searchBar = document.querySelector('.search-bar');
-    const userSearch = searchBar.value;
-    const fetchURL = `https://api.weatherapi.com/v1/forecast.json?key=e02fa4d0109640d0bc2163918231711&q=${userSearch}&days=3`;
-    const response = await fetch(fetchURL, {mode: 'cors'});
-    const forecastData = await response.json();
-    try {
-        return forecastData;
-    } catch(err) {
-        return err;
-    } 
-}
-
 // Create a new object with only necessary current weather data.
 function processCurrentData(weatherData) {
     const currentWeatherObj = {
@@ -71,12 +57,32 @@ function processForecastData(weatherData) {
 }
 
 // Run all data processing functions.
-async function processAllData() {
-    const weatherData = await getWeatherData();
+async function processAllData(weatherData) {
     processCurrentData(weatherData);
     processConditionData(weatherData);
     processHourlyData(weatherData);
     processForecastData(weatherData);
 }
 
-export default processAllData;
+// Fetch weather data.
+async function getWeatherData() {
+    const searchBar = document.querySelector('.search-bar');
+    const userSearch = searchBar.value;
+    const fetchURL = `https://api.weatherapi.com/v1/forecast.json?key=e02fa4d0109640d0bc2163918231711&q=${userSearch}&days=3`;
+    const response = await fetch(fetchURL, {mode: 'cors'});
+    const forecastData = await response.json();
+    try {
+        console.clear();
+        return processAllData(forecastData);
+    } catch(err) {
+        return err;
+    }
+}
+
+// Set location search event listener.
+function submitSearch() {
+    const searchBtn = document.querySelector('.search-btn');
+    searchBtn.addEventListener('click', getWeatherData);
+}
+
+export default submitSearch;

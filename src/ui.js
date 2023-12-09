@@ -9,7 +9,6 @@ function createSearchUI() {
     searchBar.className = 'search-bar';
     searchBtn.className = 'search-btn';
     searchBtn.innerText = 'search';
-    searchBar.value = 'taipei';
 
     searchDiv.appendChild(searchBar);
     searchDiv.appendChild(searchBtn);
