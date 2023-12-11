@@ -48,6 +48,7 @@ function createCurrentUI() {
     locationDiv.className = 'location-name';
     currentCDiv.className = 'current-c';
     currentFDiv.className = 'current-f';
+    currentFDiv.style.display = 'none';
 
     body.appendChild(currentWeatherDiv);
     currentWeatherDiv.appendChild(locationDiv);
