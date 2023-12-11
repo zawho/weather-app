@@ -16,4 +16,18 @@ function createSearchUI() {
     body.appendChild(searchDiv);
 }
 
-export default createSearchUI;
+// Create current weather UI.
+
+function createCurrentUI() {
+    const body = document.querySelector('body');
+    const currentWeatherDiv = document.createElement('div');
+    const locationTempDiv = document.createElement('div');
+
+    currentWeatherDiv.className = 'current-main';
+    locationTempDiv.className = 'location-temp';
+
+    body.appendChild(currentWeatherDiv);
+    currentWeatherDiv.appendChild(locationTempDiv);
+}
+
+export { createSearchUI, createCurrentUI };

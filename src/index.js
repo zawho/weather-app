@@ -1,6 +1,7 @@
 import './style.css';
-import createSearchUI from './ui';
+import { createSearchUI, createCurrentUI } from './ui';
 import submitSearch from './data';
 
 createSearchUI();
+createCurrentUI();
 submitSearch();
