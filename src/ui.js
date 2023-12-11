@@ -16,6 +16,26 @@ function createSearchUI() {
     body.appendChild(searchDiv);
 }
 
+// Create unit switching UI.
+function createUnitBtns() {
+    const body = document.querySelector('body');
+    const unitBtnDiv = document.createElement('div');
+    const cBtn = document.createElement('button');
+    const fBtn = document.createElement('button');
+
+    unitBtnDiv.className = 'unit-btns';
+    cBtn.className = 'selected';
+    fBtn.className= 'unselected';
+    cBtn.id = 'c-btn';
+    fBtn.id = 'f-btn';
+    cBtn.innerText = '°C';
+    fBtn.innerText = '°F';
+
+    body.appendChild(unitBtnDiv);
+    unitBtnDiv.appendChild(cBtn);
+    unitBtnDiv.appendChild(fBtn);
+}
+
 // Create current weather UI.
 
 function createCurrentUI() {
@@ -30,4 +50,4 @@ function createCurrentUI() {
     currentWeatherDiv.appendChild(locationTempDiv);
 }
 
-export { createSearchUI, createCurrentUI };
+export { createSearchUI, createUnitBtns, createCurrentUI };
