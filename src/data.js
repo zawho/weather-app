@@ -1,6 +1,8 @@
 // Create a new object with only necessary current weather data.
 function processCurrentData(weatherData) {
-    const locationTempDiv = document.querySelector('.location-temp');
+    const locationDiv = document.querySelector('.location-name');
+    const currentCDiv = document.querySelector('.current-c');
+    const currentFDiv = document.querySelector('.current-f');
     const currentWeatherObj = {
         locationName: weatherData.location.name,
         tempC: weatherData.current.temp_c,
@@ -14,10 +16,9 @@ function processCurrentData(weatherData) {
         sunrise: weatherData.forecast.forecastday[0].astro.sunrise,
         sunset: weatherData.forecast.forecastday[0].astro.sunset,
     };
-    locationTempDiv.innerText = 
-    `${currentWeatherObj.locationName} 
-    ${currentWeatherObj.tempC} °C
-    ${currentWeatherObj.tempF} °F`;
+    locationDiv.innerText = currentWeatherObj.locationName;
+    currentCDiv.innerText = `${currentWeatherObj.tempC} °C`;
+    currentFDiv.innerText = `${currentWeatherObj.tempF} °F`;
     console.log(currentWeatherObj);
 }
 

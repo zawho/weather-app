@@ -37,17 +37,22 @@ function createUnitBtns() {
 }
 
 // Create current weather UI.
-
 function createCurrentUI() {
     const body = document.querySelector('body');
     const currentWeatherDiv = document.createElement('div');
-    const locationTempDiv = document.createElement('div');
+    const locationDiv = document.createElement('div');
+    const currentCDiv = document.createElement('div');
+    const currentFDiv = document.createElement('div');
 
     currentWeatherDiv.className = 'current-main';
-    locationTempDiv.className = 'location-temp';
+    locationDiv.className = 'location-name';
+    currentCDiv.className = 'current-c';
+    currentFDiv.className = 'current-f';
 
     body.appendChild(currentWeatherDiv);
-    currentWeatherDiv.appendChild(locationTempDiv);
+    currentWeatherDiv.appendChild(locationDiv);
+    currentWeatherDiv.appendChild(currentCDiv);
+    currentWeatherDiv.appendChild(currentFDiv);
 }
 
 export { createSearchUI, createUnitBtns, createCurrentUI };
