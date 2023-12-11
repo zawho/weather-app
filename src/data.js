@@ -78,7 +78,7 @@ async function getWeatherData() {
     const response = await fetch(fetchURL, {mode: 'cors'});
     const forecastData = await response.json();
     try {
-        console.clear();
+        // console.clear();
         return processAllData(forecastData);
     } catch(err) {
         return err;

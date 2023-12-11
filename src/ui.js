@@ -25,7 +25,7 @@ function createUnitBtns() {
 
     unitBtnDiv.className = 'unit-btns';
     cBtn.className = 'selected';
-    fBtn.className= 'unselected';
+    fBtn.className = 'unselected';
     cBtn.id = 'c-btn';
     fBtn.id = 'f-btn';
     cBtn.innerText = '°C';
