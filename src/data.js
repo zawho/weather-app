@@ -22,7 +22,7 @@ function processCurrentData(weatherData) {
         maxTempC: weatherData.forecast.forecastday[0].day.maxtemp_c,
         minTempC: weatherData.forecast.forecastday[0].day.mintemp_c,
         maxTempF: weatherData.forecast.forecastday[0].day.maxtemp_f,
-        minTempF: weatherData.forecast.forecastday[0].day.maxtemp_f,
+        minTempF: weatherData.forecast.forecastday[0].day.mintemp_f,
     };
     locationDiv.innerText = currentWeatherObj.locationName;
     currentCDiv.innerText = `${currentWeatherObj.tempC} °C`;
@@ -32,6 +32,7 @@ function processCurrentData(weatherData) {
     highF.innerText = `High: ${currentWeatherObj.maxTempF} °F`;
     lowF.innerText = `Low: ${currentWeatherObj.minTempF} °F`;
     console.log(currentWeatherObj);
+    console.log(weatherData.forecast.forecastday[0]);
 }
 
 // Create a new object for current weather condition.

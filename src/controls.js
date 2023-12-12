@@ -3,13 +3,19 @@ function changeTempDisplay() {
     const fBtn = document.querySelector('#f-btn');
     const currentC = document.querySelector('.current-c');
     const currentF = document.querySelector('.current-f');
+    const highAndLowC = document.querySelector('.high-low-c');
+    const highAndLowF = document.querySelector('.high-low-f');
 
     if (fBtn.className === 'selected') {
         currentF.style.display = 'flex';
+        highAndLowF.style.display = 'flex';
         currentC.style.display = 'none';
+        highAndLowC.style.display = 'none';
     } else {
         currentC.style.display = 'flex';
+        highAndLowC.style.display = 'flex';
         currentF.style.display = 'none';
+        highAndLowF.style.display = 'none';
     }
 }
 
