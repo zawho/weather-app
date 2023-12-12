@@ -92,7 +92,8 @@ async function getWeatherData() {
     const userSearch = searchBar.value;
     const fetchURL = `https://api.weatherapi.com/v1/forecast.json?key=e02fa4d0109640d0bc2163918231711&q=${userSearch}&days=3`;
     for (let i = 0; i < currentArr.length; i++) {
-        if (currentArr[i].className === 'loading-text') {
+        if (currentArr[i].className === 'load-err-txt') {
+            currentArr[i].innerText = 'loading...';
             currentArr[i].style.display = 'flex';
         } else {
             currentArr[i].style.display = 'none';
@@ -103,16 +104,23 @@ async function getWeatherData() {
     try {
         // console.clear();
         for (let i = 0; i < currentArr.length; i++) {
-            if (currentArr[i].className === 'loading-text' || 
+            if (currentArr[i].className === 'load-err-txt' || 
             currentArr[i].className === 'invisible') {
                 currentArr[i].style.display = 'none';
             } else {
                 currentArr[i].style.display = 'flex';
             }
         }
-        return processAllData(forecastData);
+        processAllData(forecastData);
     } catch(err) {
-        return err;
+        for (let i = 0; i < currentArr.length; i++) {
+            if (currentArr[i].className === 'load-err-txt') {
+                currentArr[i].innerText = 'oops! invalid location...';
+                currentArr[i].style.display = 'flex';
+            } else {
+                currentArr[i].style.display = 'none';
+            }
+        }
     }
 }
 
