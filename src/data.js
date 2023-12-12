@@ -1,5 +1,5 @@
-// Create a new object with only necessary current weather data.
-function processCurrentData(weatherData) {
+// Display all relevant current weather data.
+function displayCurrentData(currentWeatherObj) {
     const locationDiv = document.querySelector('.location-name');
     const currentCDiv = document.querySelector('#current-c');
     const currentFDiv = document.querySelector('#current-f');
@@ -7,6 +7,17 @@ function processCurrentData(weatherData) {
     const lowC = document.querySelector('#low-c');
     const highF = document.querySelector('#high-f');
     const lowF = document.querySelector('#low-f');
+    locationDiv.innerText = currentWeatherObj.locationName;
+    currentCDiv.innerText = `${currentWeatherObj.tempC} °C`;
+    currentFDiv.innerText = `${currentWeatherObj.tempF} °F`;
+    highC.innerText = `High: ${currentWeatherObj.maxTempC} °C`;
+    lowC.innerText = `Low: ${currentWeatherObj.minTempC} °C`;
+    highF.innerText = `High: ${currentWeatherObj.maxTempF} °F`;
+    lowF.innerText = `Low: ${currentWeatherObj.minTempF} °F`;
+}
+
+// Create a new object with only necessary current weather data.
+function processCurrentData(weatherData) {
     const currentWeatherObj = {
         locationName: weatherData.location.name,
         tempC: weatherData.current.temp_c,
@@ -24,25 +35,24 @@ function processCurrentData(weatherData) {
         maxTempF: weatherData.forecast.forecastday[0].day.maxtemp_f,
         minTempF: weatherData.forecast.forecastday[0].day.mintemp_f,
     };
-    locationDiv.innerText = currentWeatherObj.locationName;
-    currentCDiv.innerText = `${currentWeatherObj.tempC} °C`;
-    currentFDiv.innerText = `${currentWeatherObj.tempF} °F`;
-    highC.innerText = `High: ${currentWeatherObj.maxTempC} °C`;
-    lowC.innerText = `Low: ${currentWeatherObj.minTempC} °C`;
-    highF.innerText = `High: ${currentWeatherObj.maxTempF} °F`;
-    lowF.innerText = `Low: ${currentWeatherObj.minTempF} °F`;
+    displayCurrentData(currentWeatherObj);
     // console.log(currentWeatherObj);
+}
+
+// Display current weather condition.
+function displayCurrentCondition(conditionObj) {
+    const conditionDiv = document.querySelector('.current-condition');
+    conditionDiv.innerText = conditionObj.conditionText;
 }
 
 // Create a new object for current weather condition.
 function processConditionData(weatherData) {
-    const conditionDiv = document.querySelector('.current-condition');
     const conditionObj = {
         conditionCode: weatherData.current.condition.code,
         conditionText: weatherData.current.condition.text,
         conditionIcon: weatherData.current.condition.icon,
     }
-    conditionDiv.innerText = conditionObj.conditionText;
+    displayCurrentCondition(conditionObj);
     // console.log(conditionObj);
 }
 
