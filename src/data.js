@@ -1,12 +1,12 @@
 // Create a new object with only necessary current weather data.
 function processCurrentData(weatherData) {
     const locationDiv = document.querySelector('.location-name');
-    const currentCDiv = document.querySelector('.current-c');
-    const currentFDiv = document.querySelector('.current-f');
-    const highC = document.querySelector('.high-c');
-    const lowC = document.querySelector('.low-c');
-    const highF = document.querySelector('.high-f');
-    const lowF = document.querySelector('.low-f');
+    const currentCDiv = document.querySelector('#current-c');
+    const currentFDiv = document.querySelector('#current-f');
+    const highC = document.querySelector('#high-c');
+    const lowC = document.querySelector('#low-c');
+    const highF = document.querySelector('#high-f');
+    const lowF = document.querySelector('#low-f');
     const currentWeatherObj = {
         locationName: weatherData.location.name,
         tempC: weatherData.current.temp_c,
@@ -103,13 +103,13 @@ async function getWeatherData() {
     try {
         // console.clear();
         for (let i = 0; i < currentArr.length; i++) {
-            if (currentArr[i].className === 'loading-text') {
+            if (currentArr[i].className === 'loading-text' || 
+            currentArr[i].className === 'invisible') {
                 currentArr[i].style.display = 'none';
             } else {
                 currentArr[i].style.display = 'flex';
             }
         }
-
         return processAllData(forecastData);
     } catch(err) {
         return err;

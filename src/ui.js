@@ -55,15 +55,19 @@ function createCurrentUI() {
     currentWeatherDiv.className = 'current-main';
     loadingDiv.className = 'loading-text';
     locationDiv.className = 'location-name';
-    currentCDiv.className = 'current-c';
-    currentFDiv.className = 'current-f';
+    currentCDiv.className = 'visible';
+    currentFDiv.className = 'invisible';
     conditionDiv.className = 'current-condition';
-    highAndLowC.className = 'high-low-c';
-    highAndLowF.className = 'high-low-f';
-    highC.className = 'high-c';
-    lowC.className = 'low-c';
-    highF.className = 'high-f';
-    lowF.className = 'low-f';
+    highAndLowC.className = 'visible';
+    highAndLowF.className = 'invisible';
+    currentCDiv.id = 'current-c';
+    currentFDiv.id = 'current-f';
+    highAndLowC.id = 'high-low-c';
+    highAndLowF.id = 'high-low-f';
+    highC.id = 'high-c';
+    lowC.id = 'low-c';
+    highF.id = 'high-f';
+    lowF.id = 'low-f';
     loadingDiv.innerText = 'loading...'
 
     body.appendChild(currentWeatherDiv);

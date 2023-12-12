@@ -24,7 +24,7 @@ body {
     padding: 10px;
 }
 
-.high-low-c, .high-low-f {
+#high-low-c, #high-low-f {
     display: flex;
     gap: 10px
 }
