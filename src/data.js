@@ -1,5 +1,5 @@
-// Display all relevant current weather data.
-function displayCurrentData(currentWeatherObj) {
+// Display basic current weather data.
+function displayBasicCurrentData(currentWeatherObj) {
     const locationDiv = document.querySelector('.location-name');
     const currentCDiv = document.querySelector('#current-c');
     const currentFDiv = document.querySelector('#current-f');
@@ -35,7 +35,7 @@ function processCurrentData(weatherData) {
         maxTempF: weatherData.forecast.forecastday[0].day.maxtemp_f,
         minTempF: weatherData.forecast.forecastday[0].day.mintemp_f,
     };
-    displayCurrentData(currentWeatherObj);
+    displayBasicCurrentData(currentWeatherObj);
     // console.log(currentWeatherObj);
 }
 
