@@ -15,6 +15,10 @@ function processCurrentData(weatherData) {
         rainChance: weatherData.forecast.forecastday[0].day.daily_chance_of_rain,
         sunrise: weatherData.forecast.forecastday[0].astro.sunrise,
         sunset: weatherData.forecast.forecastday[0].astro.sunset,
+        maxTempC: weatherData.forecast.forecastday[0].day.maxtemp_c,
+        minTempC: weatherData.forecast.forecastday[0].day.mintemp_c,
+        maxTempF: weatherData.forecast.forecastday[0].day.maxtemp_f,
+        minTempF: weatherData.forecast.forecastday[0].day.maxtemp_f,
     };
     locationDiv.innerText = currentWeatherObj.locationName;
     currentCDiv.innerText = `${currentWeatherObj.tempC} °C`;
@@ -29,7 +33,7 @@ function processConditionData(weatherData) {
         conditionText: weatherData.current.condition.text,
         conditionIcon: weatherData.current.condition.icon,
     }
-    console.log(conditionObj)
+    console.log(conditionObj);
 }
 
 // Create hourly forecast objects.
