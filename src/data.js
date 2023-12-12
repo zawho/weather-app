@@ -31,7 +31,7 @@ function processCurrentData(weatherData) {
     lowC.innerText = `Low: ${currentWeatherObj.minTempC} °C`;
     highF.innerText = `High: ${currentWeatherObj.maxTempF} °F`;
     lowF.innerText = `Low: ${currentWeatherObj.minTempF} °F`;
-    console.log(currentWeatherObj);
+    // console.log(currentWeatherObj);
 }
 
 // Create a new object for current weather condition.
@@ -43,7 +43,7 @@ function processConditionData(weatherData) {
         conditionIcon: weatherData.current.condition.icon,
     }
     conditionDiv.innerText = conditionObj.conditionText;
-    console.log(conditionObj);
+    // console.log(conditionObj);
 }
 
 // Create hourly forecast objects.
@@ -87,12 +87,29 @@ function processAllData(weatherData) {
 // Fetch weather data.
 async function getWeatherData() {
     const searchBar = document.querySelector('.search-bar');
+    const currentWeatherDiv = document.querySelector('.current-main');
+    const currentArr = Array.from(currentWeatherDiv.childNodes);
     const userSearch = searchBar.value;
     const fetchURL = `https://api.weatherapi.com/v1/forecast.json?key=e02fa4d0109640d0bc2163918231711&q=${userSearch}&days=3`;
+    for (let i = 0; i < currentArr.length; i++) {
+        if (currentArr[i].className === 'loading-text') {
+            currentArr[i].style.display = 'flex';
+        } else {
+            currentArr[i].style.display = 'none';
+        }
+    }
     const response = await fetch(fetchURL, {mode: 'cors'});
     const forecastData = await response.json();
     try {
         // console.clear();
+        for (let i = 0; i < currentArr.length; i++) {
+            if (currentArr[i].className === 'loading-text') {
+                currentArr[i].style.display = 'none';
+            } else {
+                currentArr[i].style.display = 'flex';
+            }
+        }
+
         return processAllData(forecastData);
     } catch(err) {
         return err;
@@ -101,8 +118,8 @@ async function getWeatherData() {
 
 // Set location search event listener.
 function submitSearch() {
-    getWeatherData();
     const searchBtn = document.querySelector('.search-btn');
+    getWeatherData();
     searchBtn.addEventListener('click', getWeatherData);
 }
 

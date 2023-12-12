@@ -40,6 +40,7 @@ function createUnitBtns() {
 function createCurrentUI() {
     const body = document.querySelector('body');
     const currentWeatherDiv = document.createElement('div');
+    const loadingDiv = document.createElement('div');
     const locationDiv = document.createElement('div');
     const currentCDiv = document.createElement('div');
     const currentFDiv = document.createElement('div');
@@ -52,6 +53,7 @@ function createCurrentUI() {
     const lowF = document.createElement('div');
 
     currentWeatherDiv.className = 'current-main';
+    loadingDiv.className = 'loading-text';
     locationDiv.className = 'location-name';
     currentCDiv.className = 'current-c';
     currentFDiv.className = 'current-f';
@@ -62,8 +64,10 @@ function createCurrentUI() {
     lowC.className = 'low-c';
     highF.className = 'high-f';
     lowF.className = 'low-f';
+    loadingDiv.innerText = 'loading...'
 
     body.appendChild(currentWeatherDiv);
+    currentWeatherDiv.appendChild(loadingDiv);
     currentWeatherDiv.appendChild(locationDiv);
     currentWeatherDiv.appendChild(currentCDiv);
     currentWeatherDiv.appendChild(currentFDiv);
@@ -75,6 +79,7 @@ function createCurrentUI() {
     highAndLowF.appendChild(highF);
     highAndLowF.appendChild(lowF);
 
+    loadingDiv.style.display = 'none';
     currentFDiv.style.display = 'none';
     highAndLowF.style.display = 'none';
 }
