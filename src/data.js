@@ -32,16 +32,17 @@ function processCurrentData(weatherData) {
     highF.innerText = `High: ${currentWeatherObj.maxTempF} °F`;
     lowF.innerText = `Low: ${currentWeatherObj.minTempF} °F`;
     console.log(currentWeatherObj);
-    console.log(weatherData.forecast.forecastday[0]);
 }
 
 // Create a new object for current weather condition.
 function processConditionData(weatherData) {
+    const conditionDiv = document.querySelector('.current-condition');
     const conditionObj = {
         conditionCode: weatherData.current.condition.code,
         conditionText: weatherData.current.condition.text,
         conditionIcon: weatherData.current.condition.icon,
     }
+    conditionDiv.innerText = conditionObj.conditionText;
     console.log(conditionObj);
 }
 
@@ -78,7 +79,7 @@ function processForecastData(weatherData) {
 // Run all data processing functions.
 function processAllData(weatherData) {
     processCurrentData(weatherData);
-    // processConditionData(weatherData);
+    processConditionData(weatherData);
     // processHourlyData(weatherData);
     // processForecastData(weatherData);
 }

@@ -43,6 +43,7 @@ function createCurrentUI() {
     const locationDiv = document.createElement('div');
     const currentCDiv = document.createElement('div');
     const currentFDiv = document.createElement('div');
+    const conditionDiv = document.createElement('div');
     const highAndLowC = document.createElement('div');
     const highAndLowF = document.createElement('div');
     const highC = document.createElement('div');
@@ -54,6 +55,7 @@ function createCurrentUI() {
     locationDiv.className = 'location-name';
     currentCDiv.className = 'current-c';
     currentFDiv.className = 'current-f';
+    conditionDiv.className = 'current-condition';
     highAndLowC.className = 'high-low-c';
     highAndLowF.className = 'high-low-f';
     highC.className = 'high-c';
@@ -65,6 +67,7 @@ function createCurrentUI() {
     currentWeatherDiv.appendChild(locationDiv);
     currentWeatherDiv.appendChild(currentCDiv);
     currentWeatherDiv.appendChild(currentFDiv);
+    currentWeatherDiv.appendChild(conditionDiv);
     currentWeatherDiv.appendChild(highAndLowC);
     currentWeatherDiv.appendChild(highAndLowF);
     highAndLowC.appendChild(highC);
