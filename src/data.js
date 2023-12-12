@@ -3,6 +3,10 @@ function processCurrentData(weatherData) {
     const locationDiv = document.querySelector('.location-name');
     const currentCDiv = document.querySelector('.current-c');
     const currentFDiv = document.querySelector('.current-f');
+    const highC = document.querySelector('.high-c');
+    const lowC = document.querySelector('.low-c');
+    const highF = document.querySelector('.high-f');
+    const lowF = document.querySelector('.low-f');
     const currentWeatherObj = {
         locationName: weatherData.location.name,
         tempC: weatherData.current.temp_c,
@@ -23,6 +27,10 @@ function processCurrentData(weatherData) {
     locationDiv.innerText = currentWeatherObj.locationName;
     currentCDiv.innerText = `${currentWeatherObj.tempC} °C`;
     currentFDiv.innerText = `${currentWeatherObj.tempF} °F`;
+    highC.innerText = `High: ${currentWeatherObj.maxTempC} °C`;
+    lowC.innerText = `Low: ${currentWeatherObj.minTempC} °C`;
+    highF.innerText = `High: ${currentWeatherObj.maxTempF} °F`;
+    lowF.innerText = `Low: ${currentWeatherObj.minTempF} °F`;
     console.log(currentWeatherObj);
 }
 

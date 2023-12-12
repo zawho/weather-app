@@ -43,17 +43,37 @@ function createCurrentUI() {
     const locationDiv = document.createElement('div');
     const currentCDiv = document.createElement('div');
     const currentFDiv = document.createElement('div');
+    const highAndLowC = document.createElement('div');
+    const highAndLowF = document.createElement('div');
+    const highC = document.createElement('div');
+    const lowC = document.createElement('div');
+    const highF = document.createElement('div');
+    const lowF = document.createElement('div');
 
     currentWeatherDiv.className = 'current-main';
     locationDiv.className = 'location-name';
     currentCDiv.className = 'current-c';
     currentFDiv.className = 'current-f';
-    currentFDiv.style.display = 'none';
+    highAndLowC.className = 'high-low-c';
+    highAndLowF.className = 'high-low-f';
+    highC.className = 'high-c';
+    lowC.className = 'low-c';
+    highF.className = 'high-f';
+    lowF.className = 'low-f';
 
     body.appendChild(currentWeatherDiv);
     currentWeatherDiv.appendChild(locationDiv);
     currentWeatherDiv.appendChild(currentCDiv);
     currentWeatherDiv.appendChild(currentFDiv);
+    currentWeatherDiv.appendChild(highAndLowC);
+    currentWeatherDiv.appendChild(highAndLowF);
+    highAndLowC.appendChild(highC);
+    highAndLowC.appendChild(lowC);
+    highAndLowF.appendChild(highF);
+    highAndLowF.appendChild(lowF);
+
+    currentFDiv.style.display = 'none';
+    highAndLowF.style.display = 'none';
 }
 
 export { createSearchUI, createUnitBtns, createCurrentUI };
