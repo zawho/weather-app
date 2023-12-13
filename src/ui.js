@@ -121,11 +121,11 @@ function createDetailDisplay() {
     currentDetailsDiv.appendChild(feelsLikeCDiv);
     currentDetailsDiv.appendChild(feelsLikeFDiv);
     currentDetailsDiv.appendChild(humidDiv);
-    currentDetailsDiv.appendChild(rainChanceDiv);
     currentDetailsDiv.appendChild(windDirDiv);
-    currentDetailsDiv.appendChild(windKphDiv);
     currentDetailsDiv.appendChild(sunriseDiv);
+    currentDetailsDiv.appendChild(windKphDiv);
     currentDetailsDiv.appendChild(sunsetDiv);
+    currentDetailsDiv.appendChild(rainChanceDiv);
 
     loadErrDiv.style.display = 'none';
     feelsLikeFDiv.style.display = 'none';
