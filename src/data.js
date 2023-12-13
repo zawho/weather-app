@@ -23,9 +23,21 @@ function displayBasicCurrentData(currentWeatherObj) {
 function displayCurrentDetails(currentWeatherObj) {
     const feelsLikeCDiv = document.querySelector('#feels-like-c');
     const feelsLikeFDiv = document.querySelector('#feels-like-f');
+    const humidDiv = document.querySelector('.humidity');
+    const rainChanceDiv = document.querySelector('.rain-chance');
+    const windDirDiv = document.querySelector('.wind-dir');
+    const windKphDiv = document.querySelector('.wind-kph');
+    const sunriseDiv = document.querySelector('.sunrise-time');
+    const sunsetDiv = document.querySelector('.sunset-time');
 
     feelsLikeCDiv.innerText = `feels like: ${currentWeatherObj.feelsLikeC} °C`;
     feelsLikeFDiv.innerText = `feels like: ${currentWeatherObj.feelsLikeF} °F`;
+    humidDiv.innerText = `humidity: ${currentWeatherObj.humidity}%`;
+    rainChanceDiv.innerText = `chance of rain: ${currentWeatherObj.rainChance}%`;
+    windDirDiv.innerText = `wind direction: ${currentWeatherObj.windDir}`;
+    windKphDiv.innerText = `wind speed: ${currentWeatherObj.windKPH} KPH`;
+    sunriseDiv.innerText = `sunrise: ${currentWeatherObj.sunrise}`;
+    sunsetDiv.innerText = `sunset: ${currentWeatherObj.sunset}`;
 }
 
 // Display current weather condition.
@@ -42,7 +54,7 @@ function processCurrentData(weatherData) {
         tempF: weatherData.current.temp_f,
         feelsLikeC: weatherData.current.feelslike_c,
         feelsLikeF: weatherData.current.feelslike_f,
-        humiditiy: weatherData.current.humidity,
+        humidity: weatherData.current.humidity,
         windKPH: weatherData.current.wind_kph,
         windDir: weatherData.current.wind_dir,
         rainChance: weatherData.forecast.forecastday[0].day.daily_chance_of_rain,
@@ -55,7 +67,7 @@ function processCurrentData(weatherData) {
     };
     displayBasicCurrentData(currentWeatherObj);
     displayCurrentDetails(currentWeatherObj);
-    // console.log(currentWeatherObj);
+    console.log(currentWeatherObj);
 }
 
 // Create a new object for current weather condition.

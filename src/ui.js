@@ -95,11 +95,23 @@ function createDetailDisplay() {
     const loadErrDiv = document.createElement('div');
     const feelsLikeCDiv = document.createElement('div');
     const feelsLikeFDiv = document.createElement('div');
+    const humidDiv = document.createElement('div');
+    const rainChanceDiv = document.createElement('div');
+    const windDirDiv = document.createElement('div');
+    const windKphDiv = document.createElement('div');
+    const sunriseDiv = document.createElement('div');
+    const sunsetDiv = document.createElement('div');
 
     currentDetailsDiv.className = 'current-details';
     loadErrDiv.className = 'load-err-txt';
     feelsLikeCDiv.className = 'visible';
     feelsLikeFDiv.className = 'invisible';
+    humidDiv.className = 'humidity';
+    rainChanceDiv.className = 'rain-chance';
+    windDirDiv.className = 'wind-dir';
+    windKphDiv.className = 'wind-kph';
+    sunriseDiv.className = 'sunrise-time';
+    sunsetDiv.className = 'sunset-time';
     feelsLikeCDiv.id = 'feels-like-c';
     feelsLikeFDiv.id = 'feels-like-f';
     loadErrDiv.innerText = 'loading...';
@@ -108,6 +120,12 @@ function createDetailDisplay() {
     currentDetailsDiv.appendChild(loadErrDiv);
     currentDetailsDiv.appendChild(feelsLikeCDiv);
     currentDetailsDiv.appendChild(feelsLikeFDiv);
+    currentDetailsDiv.appendChild(humidDiv);
+    currentDetailsDiv.appendChild(rainChanceDiv);
+    currentDetailsDiv.appendChild(windDirDiv);
+    currentDetailsDiv.appendChild(windKphDiv);
+    currentDetailsDiv.appendChild(sunriseDiv);
+    currentDetailsDiv.appendChild(sunsetDiv);
 
     loadErrDiv.style.display = 'none';
     feelsLikeFDiv.style.display = 'none';
