@@ -1,3 +1,5 @@
+import { displayLoading, removeLoadingDisplay, displayError } from "./ui";
+
 // Display basic current weather data.
 function displayBasicCurrentData(currentWeatherObj) {
     const locationDiv = document.querySelector('.location-name');
@@ -108,40 +110,17 @@ function processAllData(weatherData) {
 // Fetch weather data.
 async function getWeatherData() {
     const searchBar = document.querySelector('.search-bar');
-    const currentWeatherDiv = document.querySelector('.current-main');
-    const currentArr = Array.from(currentWeatherDiv.childNodes);
     const userSearch = searchBar.value;
     const fetchURL = `https://api.weatherapi.com/v1/forecast.json?key=e02fa4d0109640d0bc2163918231711&q=${userSearch}&days=3`;
-    for (let i = 0; i < currentArr.length; i++) {
-        if (currentArr[i].className === 'load-err-txt') {
-            currentArr[i].innerText = 'loading...';
-            currentArr[i].style.display = 'flex';
-        } else {
-            currentArr[i].style.display = 'none';
-        }
-    }
+    displayLoading();
     const response = await fetch(fetchURL, {mode: 'cors'});
     const forecastData = await response.json();
     try {
         // console.clear();
-        for (let i = 0; i < currentArr.length; i++) {
-            if (currentArr[i].className === 'load-err-txt' || 
-            currentArr[i].className === 'invisible') {
-                currentArr[i].style.display = 'none';
-            } else {
-                currentArr[i].style.display = 'flex';
-            }
-        }
+        removeLoadingDisplay();
         processAllData(forecastData);
     } catch(err) {
-        for (let i = 0; i < currentArr.length; i++) {
-            if (currentArr[i].className === 'load-err-txt') {
-                currentArr[i].innerText = 'oops! invalid location...';
-                currentArr[i].style.display = 'flex';
-            } else {
-                currentArr[i].style.display = 'none';
-            }
-        }
+        displayError();
     }
 }
 

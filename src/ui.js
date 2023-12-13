@@ -104,4 +104,47 @@ function createDetailDisplay() {
     currentDetailsDiv.appendChild(feelsLikeFDiv);
 }
 
-export { createSearchUI, createUnitBtns, createCurrentUI, createDetailDisplay };
+// test
+function displayLoading() {
+    const currentWeatherDiv = document.querySelector('.current-main');
+    const currentArr = Array.from(currentWeatherDiv.childNodes);
+    for (let i = 0; i < currentArr.length; i++) {
+        if (currentArr[i].className === 'load-err-txt') {
+            currentArr[i].innerText = 'loading...';
+            currentArr[i].style.display = 'flex';
+        } else {
+            currentArr[i].style.display = 'none';
+        }
+    }
+}
+
+// other test
+function removeLoadingDisplay() {
+    const currentWeatherDiv = document.querySelector('.current-main');
+    const currentArr = Array.from(currentWeatherDiv.childNodes);
+    for (let i = 0; i < currentArr.length; i++) {
+        if (currentArr[i].className === 'load-err-txt' || 
+        currentArr[i].className === 'invisible') {
+            currentArr[i].style.display = 'none';
+        } else {
+            currentArr[i].style.display = 'flex';
+        }
+    }
+}
+
+// another test
+function displayError() {
+    const currentWeatherDiv = document.querySelector('.current-main');
+    const currentArr = Array.from(currentWeatherDiv.childNodes);
+    for (let i = 0; i < currentArr.length; i++) {
+        if (currentArr[i].className === 'load-err-txt') {
+            currentArr[i].innerText = 'oops! invalid location...';
+            currentArr[i].style.display = 'flex';
+        } else {
+            currentArr[i].style.display = 'none';
+        }
+    }
+}
+
+export { createSearchUI, createUnitBtns, createCurrentUI, createDetailDisplay, 
+    displayLoading, removeLoadingDisplay, displayError };
