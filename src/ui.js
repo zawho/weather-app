@@ -36,7 +36,7 @@ function createUnitBtns() {
     unitBtnDiv.appendChild(fBtn);
 }
 
-// Create current weather UI.
+// Create basic current weather UI.
 function createCurrentUI() {
     const body = document.querySelector('body');
     const currentWeatherDiv = document.createElement('div');
@@ -88,4 +88,14 @@ function createCurrentUI() {
     highAndLowF.style.display = 'none';
 }
 
-export { createSearchUI, createUnitBtns, createCurrentUI };
+// Create detailed current weather UI.
+function createDetailDisplay() {
+    const body = document.querySelector('body');
+    const currentDetailsDiv = document.createElement('div');
+
+    currentDetailsDiv.className = 'current-details';
+
+    body.appendChild(currentDetailsDiv);
+}
+
+export { createSearchUI, createUnitBtns, createCurrentUI, createDetailDisplay };

@@ -1,3 +1,8 @@
+// Display detailed current weather data
+function displayCurrentDetails(currentWeatherObj) {
+ // Do this next.
+}
+
 // Display basic current weather data.
 function displayBasicCurrentData(currentWeatherObj) {
     const locationDiv = document.querySelector('.location-name');
@@ -36,7 +41,8 @@ function processCurrentData(weatherData) {
         minTempF: weatherData.forecast.forecastday[0].day.mintemp_f,
     };
     displayBasicCurrentData(currentWeatherObj);
-    // console.log(currentWeatherObj);
+    displayCurrentDetails(currentWeatherObj);
+    console.log(currentWeatherObj);
 }
 
 // Display current weather condition.
