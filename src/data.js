@@ -21,8 +21,8 @@ function displayBasicCurrentData(currentWeatherObj) {
 
 // Display detailed current weather data
 function displayCurrentDetails(currentWeatherObj) {
-    const feelsLikeCDiv = document.querySelector('.feels-like-c');
-    const feelsLikeFDiv = document.querySelector('.feels-like-f');
+    const feelsLikeCDiv = document.querySelector('#feels-like-c');
+    const feelsLikeFDiv = document.querySelector('#feels-like-f');
 
     feelsLikeCDiv.innerText = `feels like: ${currentWeatherObj.feelsLikeC} °C`;
     feelsLikeFDiv.innerText = `feels like: ${currentWeatherObj.feelsLikeF} °F`;
@@ -55,7 +55,7 @@ function processCurrentData(weatherData) {
     };
     displayBasicCurrentData(currentWeatherObj);
     displayCurrentDetails(currentWeatherObj);
-    console.log(currentWeatherObj);
+    // console.log(currentWeatherObj);
 }
 
 // Create a new object for current weather condition.

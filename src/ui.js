@@ -68,7 +68,7 @@ function createCurrentUI() {
     lowC.id = 'low-c';
     highF.id = 'high-f';
     lowF.id = 'low-f';
-    loadErrDiv.innerText = 'loading...'
+    loadErrDiv.innerText = 'loading...';
 
     body.appendChild(currentWeatherDiv);
     currentWeatherDiv.appendChild(loadErrDiv);
@@ -92,22 +92,34 @@ function createCurrentUI() {
 function createDetailDisplay() {
     const body = document.querySelector('body');
     const currentDetailsDiv = document.createElement('div');
+    const loadErrDiv = document.createElement('div');
     const feelsLikeCDiv = document.createElement('div');
     const feelsLikeFDiv = document.createElement('div');
 
     currentDetailsDiv.className = 'current-details';
-    feelsLikeCDiv.className = 'feels-like-c';
-    feelsLikeFDiv.className = 'feels-like-f';
+    loadErrDiv.className = 'load-err-txt';
+    feelsLikeCDiv.className = 'visible';
+    feelsLikeFDiv.className = 'invisible';
+    feelsLikeCDiv.id = 'feels-like-c';
+    feelsLikeFDiv.id = 'feels-like-f';
+    loadErrDiv.innerText = 'loading...';
 
     body.appendChild(currentDetailsDiv);
+    currentDetailsDiv.appendChild(loadErrDiv);
     currentDetailsDiv.appendChild(feelsLikeCDiv);
     currentDetailsDiv.appendChild(feelsLikeFDiv);
+
+    loadErrDiv.style.display = 'none';
+    feelsLikeFDiv.style.display = 'none';
 }
 
-// test
+// Show loading display.
 function displayLoading() {
     const currentWeatherDiv = document.querySelector('.current-main');
+    const currentDetailsDiv = document.querySelector('.current-details');
     const currentArr = Array.from(currentWeatherDiv.childNodes);
+    const detailsArr = Array.from(currentDetailsDiv.childNodes);
+
     for (let i = 0; i < currentArr.length; i++) {
         if (currentArr[i].className === 'load-err-txt') {
             currentArr[i].innerText = 'loading...';
@@ -116,12 +128,24 @@ function displayLoading() {
             currentArr[i].style.display = 'none';
         }
     }
+
+    for (let i = 0; i < detailsArr.length; i++) {
+        if (detailsArr[i].className === 'load-err-txt') {
+            detailsArr[i].innerText = 'loading...';
+            detailsArr[i].style.display = 'flex';
+        } else {
+            detailsArr[i].style.display = 'none';
+        }
+    }
 }
 
-// other test
+// Remove loading display.
 function removeLoadingDisplay() {
     const currentWeatherDiv = document.querySelector('.current-main');
+    const currentDetailsDiv = document.querySelector('.current-details');
     const currentArr = Array.from(currentWeatherDiv.childNodes);
+    const detailsArr = Array.from(currentDetailsDiv.childNodes);
+
     for (let i = 0; i < currentArr.length; i++) {
         if (currentArr[i].className === 'load-err-txt' || 
         currentArr[i].className === 'invisible') {
@@ -130,18 +154,39 @@ function removeLoadingDisplay() {
             currentArr[i].style.display = 'flex';
         }
     }
+
+    for (let i = 0; i < detailsArr.length; i++) {
+        if (detailsArr[i].className === 'load-err-txt' ||
+        detailsArr[i].className === 'invisible') {
+            detailsArr[i].style.display = 'none';
+        } else {
+            detailsArr[i].style.display = 'flex';
+        }
+    }
 }
 
-// another test
+// Show error display.
 function displayError() {
     const currentWeatherDiv = document.querySelector('.current-main');
+    const currentDetailsDiv = document.querySelector('.current-details');
     const currentArr = Array.from(currentWeatherDiv.childNodes);
+    const detailsArr = Array.from(currentDetailsDiv.childNodes);
+
     for (let i = 0; i < currentArr.length; i++) {
         if (currentArr[i].className === 'load-err-txt') {
             currentArr[i].innerText = 'oops! invalid location...';
             currentArr[i].style.display = 'flex';
         } else {
             currentArr[i].style.display = 'none';
+        }
+    }
+
+    for (let i = 0; i < detailsArr.length; i++) {
+        if (detailsArr[i].className === 'load-err-txt') {
+            detailsArr[i].innerText = 'oops!';
+            detailsArr[i].style.display = 'flex';
+        } else {
+            detailsArr[i].style.display = 'none';
         }
     }
 }
