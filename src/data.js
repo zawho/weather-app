@@ -1,8 +1,3 @@
-// Display detailed current weather data
-function displayCurrentDetails(currentWeatherObj) {
- // Do this next.
-}
-
 // Display basic current weather data.
 function displayBasicCurrentData(currentWeatherObj) {
     const locationDiv = document.querySelector('.location-name');
@@ -12,13 +7,29 @@ function displayBasicCurrentData(currentWeatherObj) {
     const lowC = document.querySelector('#low-c');
     const highF = document.querySelector('#high-f');
     const lowF = document.querySelector('#low-f');
-    locationDiv.innerText = currentWeatherObj.locationName;
+
+    locationDiv.innerText = currentWeatherObj.locationName.toLowerCase();
     currentCDiv.innerText = `${currentWeatherObj.tempC} °C`;
     currentFDiv.innerText = `${currentWeatherObj.tempF} °F`;
-    highC.innerText = `High: ${currentWeatherObj.maxTempC} °C`;
-    lowC.innerText = `Low: ${currentWeatherObj.minTempC} °C`;
-    highF.innerText = `High: ${currentWeatherObj.maxTempF} °F`;
-    lowF.innerText = `Low: ${currentWeatherObj.minTempF} °F`;
+    highC.innerText = `high: ${currentWeatherObj.maxTempC} °C`;
+    lowC.innerText = `low: ${currentWeatherObj.minTempC} °C`;
+    highF.innerText = `high: ${currentWeatherObj.maxTempF} °F`;
+    lowF.innerText = `low: ${currentWeatherObj.minTempF} °F`;
+}
+
+// Display detailed current weather data
+function displayCurrentDetails(currentWeatherObj) {
+    const feelsLikeCDiv = document.querySelector('.feels-like-c');
+    const feelsLikeFDiv = document.querySelector('.feels-like-f');
+
+    feelsLikeCDiv.innerText = `feels like: ${currentWeatherObj.feelsLikeC} °C`;
+    feelsLikeFDiv.innerText = `feels like: ${currentWeatherObj.feelsLikeF} °F`;
+}
+
+// Display current weather condition.
+function displayCurrentCondition(conditionObj) {
+    const conditionDiv = document.querySelector('.current-condition');
+    conditionDiv.innerText = conditionObj.conditionText.toLowerCase();
 }
 
 // Create a new object with only necessary current weather data.
@@ -43,12 +54,6 @@ function processCurrentData(weatherData) {
     displayBasicCurrentData(currentWeatherObj);
     displayCurrentDetails(currentWeatherObj);
     console.log(currentWeatherObj);
-}
-
-// Display current weather condition.
-function displayCurrentCondition(conditionObj) {
-    const conditionDiv = document.querySelector('.current-condition');
-    conditionDiv.innerText = conditionObj.conditionText;
 }
 
 // Create a new object for current weather condition.

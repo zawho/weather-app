@@ -92,10 +92,16 @@ function createCurrentUI() {
 function createDetailDisplay() {
     const body = document.querySelector('body');
     const currentDetailsDiv = document.createElement('div');
+    const feelsLikeCDiv = document.createElement('div');
+    const feelsLikeFDiv = document.createElement('div');
 
     currentDetailsDiv.className = 'current-details';
+    feelsLikeCDiv.className = 'feels-like-c';
+    feelsLikeFDiv.className = 'feels-like-f';
 
     body.appendChild(currentDetailsDiv);
+    currentDetailsDiv.appendChild(feelsLikeCDiv);
+    currentDetailsDiv.appendChild(feelsLikeFDiv);
 }
 
 export { createSearchUI, createUnitBtns, createCurrentUI, createDetailDisplay };
