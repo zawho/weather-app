@@ -1,42 +1,68 @@
-// Switch displayed temp unit.
-function changeTempDisplay() {
-    const fBtn = document.querySelector('#f-btn');
+// Change current temp unit display.
+function changeCurrentUnits(fBtn) {
     const currentC = document.querySelector('#current-c');
     const currentF = document.querySelector('#current-f');
-    const highAndLowC = document.querySelector('#high-low-c');
-    const highAndLowF = document.querySelector('#high-low-f');
-    const feelsLikeC = document.querySelector('#feels-like-c');
-    const feelsLikeF = document.querySelector('#feels-like-f');
 
     if (fBtn.className === 'selected') {
         currentF.className = 'visible';
-        highAndLowF.className = 'visible';
-        feelsLikeF.className = 'visible';
         currentF.style.display = 'flex';
-        highAndLowF.style.display = 'flex';
-        feelsLikeF.style.display = 'grid';
 
         currentC.className = 'invisible';
-        highAndLowC.className = 'invisible';
-        feelsLikeC.className = 'invisible';
         currentC.style.display = 'none';
-        highAndLowC.style.display = 'none';
-        feelsLikeC.style.display = 'none';
     } else {
         currentC.className = 'visible';
-        highAndLowC.className = 'visible';
-        feelsLikeC.className = 'visible';
         currentC.style.display = 'flex';
-        highAndLowC.style.display = 'flex';
-        feelsLikeC.style.display = 'grid';
 
         currentF.className = 'invisible';
-        highAndLowF.className = 'invisible';
-        feelsLikeF.className = 'invisible';
         currentF.style.display = 'none';
+    }
+}
+
+// Change high and low temp unit display.
+function changeHighLowUnits(fBtn) {
+    const highAndLowC = document.querySelector('#high-low-c');
+    const highAndLowF = document.querySelector('#high-low-f');
+
+    if (fBtn.className === 'selected') {
+        highAndLowF.className = 'visible';
+        highAndLowF.style.display = 'flex';
+      
+        highAndLowC.className = 'invisible';
+        highAndLowC.style.display = 'none';
+    } else {
+        highAndLowC.className = 'visible';
+        highAndLowC.style.display = 'flex';
+
+        highAndLowF.className = 'invisible';
         highAndLowF.style.display = 'none';
+    }
+}
+
+// Change feels like temp unit display.
+function changeFeelsLikeUnits(fBtn) {
+    const feelsLikeC = document.querySelector('#feels-like-c');
+    const feelsLikeF = document.querySelector('#feels-like-f');
+    if (fBtn.className === 'selected') {
+        feelsLikeF.className = 'visible';
+        feelsLikeF.style.display = 'grid';
+
+        feelsLikeC.className = 'invisible';
+        feelsLikeC.style.display = 'none';
+    } else {
+        feelsLikeC.className = 'visible';
+        feelsLikeC.style.display = 'grid';
+
+        feelsLikeF.className = 'invisible';
         feelsLikeF.style.display = 'none';
     }
+}
+
+// Run all temp unit funcs.
+function changeAllUnits() {
+    const fBtn = document.querySelector('#f-btn');
+    changeCurrentUnits(fBtn);
+    changeHighLowUnits(fBtn);
+    changeFeelsLikeUnits(fBtn);
 }
 
 // Switch button classes on press.
@@ -51,7 +77,7 @@ function changeBtnClass() {
         }
         this.className = 'selected';
     }
-    changeTempDisplay();
+    changeAllUnits();
 }
 
 function addBtnListeners() {
