@@ -67,7 +67,7 @@ function processCurrentData(weatherData) {
     };
     displayBasicCurrentData(currentWeatherObj);
     displayCurrentDetails(currentWeatherObj);
-    console.log(currentWeatherObj);
+    // console.log(currentWeatherObj);
 }
 
 // Create a new object for current weather condition.
@@ -86,13 +86,23 @@ function processHourlyData(weatherData) {
     const localTime = weatherData.location.localtime;
     const currentDate = new Date(localTime);
     const currentHour = currentDate.getHours();
-    const hourlyArr = weatherData.forecast.forecastday[0].hour;
+    const todayHourlyArr = weatherData.forecast.forecastday[0].hour;
+    const tmrwHourlyArr = weatherData.forecast.forecastday[1].hour;
     const newhourlyArr = [];
-    for (let i = currentHour + 1; i < hourlyArr.length; i++) {
+    let todayHourVar;
+    for (let i = currentHour + 1; i < todayHourlyArr.length; i++) {
         const hourObj = {};
-        hourObj.time = hourlyArr[i].time;
-        hourObj.tempC = hourlyArr[i].temp_c;
-        hourObj.tempF = hourlyArr[i].temp_f;
+        hourObj.time = todayHourlyArr[i].time;
+        hourObj.tempC = todayHourlyArr[i].temp_c;
+        hourObj.tempF = todayHourlyArr[i].temp_f;
+        newhourlyArr.push(hourObj);
+        todayHourVar = newhourlyArr.length;
+    }
+    for (let i = 0; i < tmrwHourlyArr.length - todayHourVar; i++) {
+        const hourObj = {};
+        hourObj.time = tmrwHourlyArr[i].time;
+        hourObj.tempC = tmrwHourlyArr[i].temp_c;
+        hourObj.tempF = tmrwHourlyArr[i].temp_f;
         newhourlyArr.push(hourObj);
     }
     console.log(newhourlyArr);
@@ -115,7 +125,7 @@ function processForecastData(weatherData) {
 function processAllData(weatherData) {
     processCurrentData(weatherData);
     processConditionData(weatherData);
-    // processHourlyData(weatherData);
+    processHourlyData(weatherData);
     // processForecastData(weatherData);
 }
 
@@ -128,10 +138,10 @@ async function getWeatherData() {
     const response = await fetch(fetchURL, {mode: 'cors'});
     const forecastData = await response.json();
     try {
-        // console.clear();
         removeLoadingDisplay();
         processAllData(forecastData);
     } catch(err) {
+        console.log(err); // eslint-disable-line no-console
         displayError();
     }
 }
