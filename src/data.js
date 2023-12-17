@@ -81,8 +81,8 @@ function processConditionData(weatherData) {
     // console.log(conditionObj);
 }
 
-// Create hourly forecast objects.
-function processHourlyData(weatherData) {
+// Create hourly forecast objects. Not currently displayed.
+function processHourlyData(weatherData) { // eslint-disable-line no-unused-vars
     const localTime = weatherData.location.localtime;
     const currentDate = new Date(localTime);
     const currentHour = currentDate.getHours();
@@ -105,11 +105,11 @@ function processHourlyData(weatherData) {
         hourObj.tempF = tmrwHourlyArr[i].temp_f;
         newhourlyArr.push(hourObj);
     }
-    console.log(newhourlyArr);
+    console.log(newhourlyArr); // eslint-disable-line no-console
 }
 
-// Create tomorrow forecast object.
-function processForecastData(weatherData) {
+// Create tomorrow forecast object. Not currently displayed.
+function processForecastData(weatherData) { // eslint-disable-line no-unused-vars
     const tomorrowForecaseObj = {
         maxTempC: weatherData.forecast.forecastday[1].day.maxtemp_c,
         minTempC: weatherData.forecast.forecastday[1].day.mintemp_c,
@@ -118,14 +118,14 @@ function processForecastData(weatherData) {
         rainChance: weatherData.forecast.forecastday[1].day.daily_chance_of_rain,
         conditionIcon: weatherData.forecast.forecastday[1].day.condition.icon,
     }
-    console.log(tomorrowForecaseObj);
+    console.log(tomorrowForecaseObj); // eslint-disable-line no-console
 }
 
 // Run all data processing functions.
 function processAllData(weatherData) {
     processCurrentData(weatherData);
     processConditionData(weatherData);
-    processHourlyData(weatherData);
+    // processHourlyData(weatherData);
     // processForecastData(weatherData);
 }
 
