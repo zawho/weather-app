@@ -1,29 +1,29 @@
 html {
     display: flex;
-    align-items: center;
     justify-content: center;
     height: 100%;
 }
 
 body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: grid;
+    grid-template-rows: 0.5fr 1fr 2fr 2fr;
 }
 .search-div {
     display: flex;
     gap: 10px;
-    margin-bottom: 10px;
+    align-self: center;
+    justify-self: center;
 }
 
 .unit-btns {
     display: flex;
     gap: 10px;
+    align-self: center;
+    justify-self: center;
 }
 
 .current-main, .current-details {
     border: 1px solid black;
-    margin-top: 10px;
     padding: 10px;
 }
 
@@ -32,6 +32,7 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 10px;
+    align-self: center;
 }
 
 .current-details {
@@ -39,6 +40,7 @@ body {
     grid-template-columns: 1fr 1fr;
     column-gap: 20px;
     row-gap: 5px;
+    align-self: start;
 }
 
 .humidity, .sunrise-time, .sunset-time {
