@@ -36,6 +36,16 @@ function createUnitBtns() {
     unitBtnDiv.appendChild(fBtn);
 }
 
+// Create condition icon UI.
+function createIconDisplay() {
+    const body = document.querySelector('body');
+    const iconDiv = document.createElement('img');
+
+    iconDiv.className = 'condition-icon';
+
+    body.appendChild(iconDiv);
+}
+
 // Create basic current weather UI.
 function createCurrentUI() {
     const body = document.querySelector('body');
@@ -209,5 +219,5 @@ function displayError() {
     }
 }
 
-export { createSearchUI, createUnitBtns, createCurrentUI, createDetailDisplay, 
+export { createSearchUI, createUnitBtns, createIconDisplay, createCurrentUI, createDetailDisplay, 
     displayLoading, removeLoadingDisplay, displayError };

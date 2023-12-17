@@ -1,5 +1,13 @@
 import { displayLoading, removeLoadingDisplay, displayError } from "./ui";
 
+// Display condition icon.
+function displayConditionIcon(conditionObj) {
+    const iconDiv = document.querySelector('.condition-icon');
+
+    iconDiv.src = `https:${conditionObj.conditionIcon}`;
+    iconDiv.alt = conditionObj.conditionText.toLowerCase();
+}
+
 // Display basic current weather data.
 function displayBasicCurrentData(currentWeatherObj) {
     const locationDiv = document.querySelector('.location-name');
@@ -17,6 +25,12 @@ function displayBasicCurrentData(currentWeatherObj) {
     lowC.innerText = `low: ${currentWeatherObj.minTempC} °c`;
     highF.innerText = `high: ${currentWeatherObj.maxTempF} °f`;
     lowF.innerText = `low: ${currentWeatherObj.minTempF} °f`;
+}
+
+// Display current weather condition.
+function displayCurrentCondition(conditionObj) {
+    const conditionDiv = document.querySelector('.current-condition');
+    conditionDiv.innerText = conditionObj.conditionText.toLowerCase();
 }
 
 // Display detailed current weather data
@@ -38,12 +52,6 @@ function displayCurrentDetails(currentWeatherObj) {
     windKphDiv.innerText = `wind speed: ${currentWeatherObj.windKPH} kph`;
     sunriseDiv.innerText = `sunrise: ${currentWeatherObj.sunrise.toLowerCase()}`;
     sunsetDiv.innerText = `sunset: ${currentWeatherObj.sunset.toLowerCase()}`;
-}
-
-// Display current weather condition.
-function displayCurrentCondition(conditionObj) {
-    const conditionDiv = document.querySelector('.current-condition');
-    conditionDiv.innerText = conditionObj.conditionText.toLowerCase();
 }
 
 // Create a new object with only necessary current weather data.
@@ -78,6 +86,7 @@ function processConditionData(weatherData) {
         conditionIcon: weatherData.current.condition.icon,
     }
     displayCurrentCondition(conditionObj);
+    displayConditionIcon(conditionObj);
     // console.log(conditionObj);
 }
 

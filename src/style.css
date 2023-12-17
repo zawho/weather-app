@@ -6,7 +6,7 @@ html {
 
 body {
     display: grid;
-    grid-template-rows: 0.5fr 1fr 2fr 2fr;
+    grid-template-rows: 0.5fr 1f 1fr 2fr 2fr;
     background-color: rgb(63, 83, 63);
 }
 .search-div {
@@ -19,6 +19,10 @@ body {
 .unit-btns {
     display: flex;
     gap: 10px;
+    align-self: center;
+    justify-self: center;
+}
+.condition-icon {
     align-self: center;
     justify-self: center;
 }
