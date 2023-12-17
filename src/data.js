@@ -11,12 +11,12 @@ function displayBasicCurrentData(currentWeatherObj) {
     const lowF = document.querySelector('#low-f');
 
     locationDiv.innerText = currentWeatherObj.locationName.toLowerCase();
-    currentCDiv.innerText = `${currentWeatherObj.tempC} °C`;
-    currentFDiv.innerText = `${currentWeatherObj.tempF} °F`;
-    highC.innerText = `high: ${currentWeatherObj.maxTempC} °C`;
-    lowC.innerText = `low: ${currentWeatherObj.minTempC} °C`;
-    highF.innerText = `high: ${currentWeatherObj.maxTempF} °F`;
-    lowF.innerText = `low: ${currentWeatherObj.minTempF} °F`;
+    currentCDiv.innerText = `${currentWeatherObj.tempC} °c`;
+    currentFDiv.innerText = `${currentWeatherObj.tempF} °f`;
+    highC.innerText = `high: ${currentWeatherObj.maxTempC} °c`;
+    lowC.innerText = `low: ${currentWeatherObj.minTempC} °c`;
+    highF.innerText = `high: ${currentWeatherObj.maxTempF} °f`;
+    lowF.innerText = `low: ${currentWeatherObj.minTempF} °f`;
 }
 
 // Display detailed current weather data
@@ -30,14 +30,14 @@ function displayCurrentDetails(currentWeatherObj) {
     const sunriseDiv = document.querySelector('.sunrise-time');
     const sunsetDiv = document.querySelector('.sunset-time');
 
-    feelsLikeCDiv.innerText = `feels like: ${currentWeatherObj.feelsLikeC} °C`;
-    feelsLikeFDiv.innerText = `feels like: ${currentWeatherObj.feelsLikeF} °F`;
+    feelsLikeCDiv.innerText = `feels like: ${currentWeatherObj.feelsLikeC} °c`;
+    feelsLikeFDiv.innerText = `feels like: ${currentWeatherObj.feelsLikeF} °f`;
     humidDiv.innerText = `humidity: ${currentWeatherObj.humidity}%`;
     rainChanceDiv.innerText = `chance of rain: ${currentWeatherObj.rainChance}%`;
-    windDirDiv.innerText = `wind direction: ${currentWeatherObj.windDir}`;
-    windKphDiv.innerText = `wind speed: ${currentWeatherObj.windKPH} KPH`;
-    sunriseDiv.innerText = `sunrise: ${currentWeatherObj.sunrise}`;
-    sunsetDiv.innerText = `sunset: ${currentWeatherObj.sunset}`;
+    windDirDiv.innerText = `wind direction: ${currentWeatherObj.windDir.toLowerCase()}`;
+    windKphDiv.innerText = `wind speed: ${currentWeatherObj.windKPH} kph`;
+    sunriseDiv.innerText = `sunrise: ${currentWeatherObj.sunrise.toLowerCase()}`;
+    sunsetDiv.innerText = `sunset: ${currentWeatherObj.sunset.toLowerCase()}`;
 }
 
 // Display current weather condition.

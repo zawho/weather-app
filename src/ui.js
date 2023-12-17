@@ -28,8 +28,8 @@ function createUnitBtns() {
     fBtn.className = 'unselected';
     cBtn.id = 'c-btn';
     fBtn.id = 'f-btn';
-    cBtn.innerText = '°C';
-    fBtn.innerText = '°F';
+    cBtn.innerText = '°c';
+    fBtn.innerText = '°f';
 
     body.appendChild(unitBtnDiv);
     unitBtnDiv.appendChild(cBtn);
