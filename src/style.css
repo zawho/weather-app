@@ -91,6 +91,11 @@ button {
     font-size: 1.1rem;
 }
 
+.current-details > .load-err-txt {
+    justify-content: center;
+    width: 100%;
+}
+
 .humidity, .sunrise-time, .sunset-time {
     justify-content: end;
 }

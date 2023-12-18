@@ -143,10 +143,14 @@ function createDetailDisplay() {
 
 // Show loading display.
 function displayLoading() {
+    const conditionIcon = document.querySelector('.condition-icon');
     const currentWeatherDiv = document.querySelector('.current-main');
     const currentDetailsDiv = document.querySelector('.current-details');
     const currentArr = Array.from(currentWeatherDiv.childNodes);
     const detailsArr = Array.from(currentDetailsDiv.childNodes);
+
+    conditionIcon.src = '';
+    conditionIcon.alt = 'loading...';
 
     for (let i = 0; i < currentArr.length; i++) {
         if (currentArr[i].className === 'load-err-txt') {
@@ -161,6 +165,7 @@ function displayLoading() {
         if (detailsArr[i].className === 'load-err-txt') {
             detailsArr[i].innerText = 'loading...';
             detailsArr[i].style.display = 'flex';
+            currentDetailsDiv.style.display = 'flex';
         } else {
             detailsArr[i].style.display = 'none';
         }
@@ -169,10 +174,14 @@ function displayLoading() {
 
 // Remove loading display.
 function removeLoadingDisplay() {
+    const conditionIcon = document.querySelector('.condition-icon');
     const currentWeatherDiv = document.querySelector('.current-main');
     const currentDetailsDiv = document.querySelector('.current-details');
     const currentArr = Array.from(currentWeatherDiv.childNodes);
     const detailsArr = Array.from(currentDetailsDiv.childNodes);
+
+    conditionIcon.src = '';
+    conditionIcon.alt = 'oops! nothing to show...';
 
     for (let i = 0; i < currentArr.length; i++) {
         if (currentArr[i].className === 'load-err-txt' || 
@@ -187,6 +196,7 @@ function removeLoadingDisplay() {
         if (detailsArr[i].className === 'load-err-txt' ||
         detailsArr[i].className === 'invisible') {
             detailsArr[i].style.display = 'none';
+            currentDetailsDiv.style.display = 'grid';
         } else {
             detailsArr[i].style.display = 'flex';
         }
@@ -211,8 +221,9 @@ function displayError() {
 
     for (let i = 0; i < detailsArr.length; i++) {
         if (detailsArr[i].className === 'load-err-txt') {
-            detailsArr[i].innerText = 'oops!';
+            detailsArr[i].innerText = 'oops! invalid location...';
             detailsArr[i].style.display = 'flex';
+            currentDetailsDiv.style.display = 'flex';
         } else {
             detailsArr[i].style.display = 'none';
         }
