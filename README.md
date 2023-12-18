@@ -1,1 +1,3 @@
 12/4/23 - I am now beginning the weather app project as part of the The Odin Project's Javascript track. I will be making a simple web app that displays 3-day weather forecasts for any location around the world thanks to WeatherAPI. The focus of this project is to practice using promises, async/await, and fetching data from an API.
+
+12/18/23 - I have finished the weather app. I focused on implementing what I recently learned about promises, async functions, and APIs. I wrote a few extra functions for retrieving and processing hourly and tomorrow forecast data, but I did not implement them into the page in order to save time. I also kept the overall styling rather simple.
