@@ -114,3 +114,18 @@ button:disabled {
     display: flex;
     gap: 10px
 }
+
+@media only screen and (max-width: 430px) {
+    body {
+        grid-template-rows: 100px 50px 50px 50px 150px 1fr 1fr;
+    }
+    .condition-icon {
+      height: 50px;
+    }
+  }
+
+  @media only screen and (max-width: 380px) {
+    .condition-icon {
+      height: 40px;
+    }
+  }
