@@ -10,6 +10,15 @@ body {
     grid-template-rows: 0.5fr 0.5fr 0.5fr 1fr 1fr 1fr;
     background-color: rgb(181, 208, 181);
 }
+
+button {
+    font-family: 'Aldrich', sans-serif;
+    font-size: 1rem;
+    border: none;
+    padding: 5px 10px;
+    color: rgb(235, 227, 217);
+}
+
 .search-div {
     display: flex;
     gap: 10px;
@@ -17,14 +26,21 @@ body {
     justify-self: center;
 }
 
-input {
+.search-bar {
     font-family: 'Aldrich', sans-serif;
     font-size: 1.1rem;
+    background-color: rgb(38, 37, 37);
+    color: rgb(235, 227, 217);
+    border: none;
+    padding: 5px 10px;
 }
 
-button {
-    font-family: 'Aldrich', sans-serif;
-    font-size: 1rem;
+.search-bar:focus {
+    outline: 2px solid rgb(229, 126, 29);
+}
+
+.search-btn {
+    background-color: rgb(229, 126, 29);
 }
 
 .unit-btns {
@@ -32,9 +48,18 @@ button {
     gap: 10px;
     align-self: center;
     justify-self: center;
-    width: 100%;
     justify-content: space-around;
+    width: 100%;
 }
+
+.selected {
+    background-color: rgb(229, 126, 29);
+}
+
+.unselected {
+    background-color: rgb(38, 37, 37);
+}
+
 .condition-icon {
     align-self: center;
     justify-self: center;
