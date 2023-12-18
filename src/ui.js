@@ -149,8 +149,7 @@ function displayLoading() {
     const currentArr = Array.from(currentWeatherDiv.childNodes);
     const detailsArr = Array.from(currentDetailsDiv.childNodes);
 
-    conditionIcon.src = '';
-    conditionIcon.alt = 'loading...';
+    conditionIcon.style.display = 'none';
 
     for (let i = 0; i < currentArr.length; i++) {
         if (currentArr[i].className === 'load-err-txt') {
@@ -176,6 +175,7 @@ function displayLoading() {
 function removeLoadingDisplay() {
     const cBtn = document.querySelector('#c-btn');
     const fBtn = document.querySelector('#f-btn');
+    const conditionIcon = document.querySelector('.condition-icon');
     const currentWeatherDiv = document.querySelector('.current-main');
     const currentDetailsDiv = document.querySelector('.current-details');
     const currentArr = Array.from(currentWeatherDiv.childNodes);
@@ -183,6 +183,8 @@ function removeLoadingDisplay() {
 
     cBtn.disabled = false;
     fBtn.disabled = false;
+
+    conditionIcon.style.display = 'flex';
 
     for (let i = 0; i < currentArr.length; i++) {
         if (currentArr[i].className === 'load-err-txt' || 
@@ -217,8 +219,7 @@ function displayError() {
     cBtn.disabled = true;
     fBtn.disabled = true;
 
-    conditionIcon.src = '';
-    conditionIcon.alt = 'oops! nothing to show...';
+    conditionIcon.style.display = 'none';
 
     for (let i = 0; i < currentArr.length; i++) {
         if (currentArr[i].className === 'load-err-txt') {
