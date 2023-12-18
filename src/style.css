@@ -68,7 +68,6 @@ button:disabled {
     align-self: center;
     justify-self: center;
     filter: grayscale(1);
-    height: 80px;
 }
 
 .current-main, .current-details {
