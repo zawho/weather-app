@@ -9,7 +9,7 @@ function createSearchUI() {
     searchBar.className = 'search-bar';
     searchBtn.className = 'search-btn';
     searchBar.value = 'new york';
-    searchBtn.innerText = 'search';
+    searchBtn.innerText = 'go';
 
     searchDiv.appendChild(searchBar);
     searchDiv.appendChild(searchBtn);
