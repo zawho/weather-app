@@ -174,14 +174,15 @@ function displayLoading() {
 
 // Remove loading display.
 function removeLoadingDisplay() {
-    const conditionIcon = document.querySelector('.condition-icon');
+    const cBtn = document.querySelector('#c-btn');
+    const fBtn = document.querySelector('#f-btn');
     const currentWeatherDiv = document.querySelector('.current-main');
     const currentDetailsDiv = document.querySelector('.current-details');
     const currentArr = Array.from(currentWeatherDiv.childNodes);
     const detailsArr = Array.from(currentDetailsDiv.childNodes);
 
-    conditionIcon.src = '';
-    conditionIcon.alt = 'oops! nothing to show...';
+    cBtn.disabled = false;
+    fBtn.disabled = false;
 
     for (let i = 0; i < currentArr.length; i++) {
         if (currentArr[i].className === 'load-err-txt' || 
@@ -205,10 +206,19 @@ function removeLoadingDisplay() {
 
 // Show error display.
 function displayError() {
+    const conditionIcon = document.querySelector('.condition-icon');
+    const cBtn = document.querySelector('#c-btn');
+    const fBtn = document.querySelector('#f-btn');
     const currentWeatherDiv = document.querySelector('.current-main');
     const currentDetailsDiv = document.querySelector('.current-details');
     const currentArr = Array.from(currentWeatherDiv.childNodes);
     const detailsArr = Array.from(currentDetailsDiv.childNodes);
+
+    cBtn.disabled = true;
+    fBtn.disabled = true;
+
+    conditionIcon.src = '';
+    conditionIcon.alt = 'oops! nothing to show...';
 
     for (let i = 0; i < currentArr.length; i++) {
         if (currentArr[i].className === 'load-err-txt') {
